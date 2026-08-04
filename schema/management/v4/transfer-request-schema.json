@@ -28,6 +28,9 @@
         "protocol": {
           "type": "string"
         },
+        "profile": {
+          "type": "string"
+        },
         "contractId": {
           "type": "string"
         },
@@ -37,21 +40,42 @@
         "privateProperties": {
           "type": "object"
         },
-        "dataDestination": {
-          "$ref": "https://w3id.org/edc/connector/management/schema/v4/data-address-schema.json"
-        },
         "callbackAddresses": {
           "type": "array",
           "items": {
             "$ref": "https://w3id.org/edc/connector/management/schema/v4/callback-address-schema.json"
           }
+        },
+        "dataplaneMetadata": {
+          "$ref": "https://w3id.org/edc/connector/management/schema/v4/dataplane-metadata-schema.json"
         }
       },
+      "oneOf": [
+        {
+          "required": [
+            "protocol"
+          ],
+          "not": {
+            "required": [
+              "profile"
+            ]
+          }
+        },
+        {
+          "required": [
+            "profile"
+          ],
+          "not": {
+            "required": [
+              "protocol"
+            ]
+          }
+        }
+      ],
       "required": [
         "@context",
         "@type",
         "counterPartyAddress",
-        "protocol",
         "contractId",
         "transferType"
       ]

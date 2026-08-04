@@ -23,13 +23,21 @@
           "type": "string"
         },
         "properties": {
-          "type": "object"
+          "type": "object",
+          "example": {
+            "key": "value"
+          },
+          "properties": {
+            "conformsTo": {
+              "type": "string"
+            }
+          }
         },
         "privateProperties": {
-          "type": "object"
-        },
-        "dataAddress": {
-          "$ref": "https://w3id.org/edc/connector/management/schema/v4/data-address-schema.json"
+          "type": "object",
+          "example": {
+            "privateKey": "privateValue"
+          }
         },
         "dataplaneMetadata": {
           "$ref": "https://w3id.org/edc/connector/management/schema/v4/dataplane-metadata-schema.json"
@@ -38,8 +46,7 @@
       "required": [
         "@context",
         "@type",
-        "properties",
-        "dataAddress"
+        "properties"
       ]
     }
   }

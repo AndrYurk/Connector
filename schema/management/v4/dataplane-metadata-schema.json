@@ -23,12 +23,17 @@
           }
         },
         "properties": {
-          "type": "object"
+          "type": "object",
+          "example": { "key": "value" }
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
-      "required": [
-        "@type"
-      ]
+      "required": ["@type"]
     }
   }
 }
